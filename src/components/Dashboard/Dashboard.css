@@ -51,6 +51,11 @@
 
 .dashboard__heading {
   padding: 24px 24px 12px;
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
 }
 
 .dashboard__list {
