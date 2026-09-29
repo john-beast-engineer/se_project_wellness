@@ -1,50 +1,52 @@
 /* ================================
    DESIGN TOKENS — Wellness app
-   Role-named, so a fork only has to change the values below,
-   never the component CSS that consumes them.
+   Palette taken from Pamela's site (royal blue / near-black / white / gold).
+   Every value below is contrast-verified; ratios are in the comments.
    ================================ */
 
 :root {
   /* ---- Surfaces ---- */
-  --color-bg: #000000; /* page background */
-  --color-bg-nav: #0a0a0a; /* bottom nav / chrome */
-  --color-surface: #1a1a1a; /* cards, modals */
-  --color-surface-raised: #262626; /* hovered card, inputs */
-  --color-overlay: rgba(0, 0, 0, 0.7); /* modal scrim */
-  --color-scrim: rgba(0, 0, 0, 0.55); /* image/tile darkening */
-  --color-scrim-soft: rgba(0, 0, 0, 0.4);
+  --color-bg: #080c14; /* page background (site --black) */
+  --color-bg-nav: #080c14; /* bottom nav / chrome */
+  --color-surface: #0d1624; /* cards, modals (site --deep) */
+  --color-surface-raised: #16233d; /* hovered card, inputs */
+  --color-overlay: rgba(8, 12, 20, 0.85); /* modal scrim */
+  --color-scrim: rgba(8, 12, 20, 0.65); /* image/tile darkening */
+  --color-scrim-soft: rgba(8, 12, 20, 0.45);
 
   /* ---- Borders ---- */
-  --color-border-subtle: #1f1f1f;
-  --color-border: #333333;
-  --color-border-strong: #444444;
+  /* The site draws borders in translucent royal rather than grey. */
+  --color-border-subtle: rgba(37, 87, 199, 0.14);
+  --color-border: rgba(37, 87, 199, 0.28);
+  --color-border-strong: rgba(37, 87, 199, 0.5);
 
   /* ---- Text ---- */
   --color-text: #ffffff;
-  --color-text-muted: #aaaaaa;
-  --color-text-dim: #777777;
+  --color-text-muted: rgba(255, 255, 255, 0.72); /* 9.33:1 */
+  --color-text-dim: #8b95a6; /* 6.47:1 — the site's white@0.45 is 4.13, under AA */
 
   /* ---- Accent: royal blue ----
-     -accent      = accent TEXT / icons / borders (needs 4.5:1 on --color-surface)
-     -accent-fill = accent BACKGROUND under white text (needs 4.5:1 vs #fff)
-     Royal blue #4169E1 is only 3.59:1 as text on #1a1a1a, so it takes the FILL
-     role and a lighter tint of the same hue takes the text role.
-     Verified: accent 6.51:1 on surface | white on fill 4.85:1 | hover 6.49:1 */
-  --color-accent: #7b9bf5;
-  --color-accent-fill: #4169e1; /* royal blue */
-  --color-accent-fill-hover: #3355c4;
-  --color-accent-soft: #9db8ff;
-  --color-accent-glow: rgba(65, 105, 225, 0.5);
-  --color-accent-wash: rgba(65, 105, 225, 0.15);
+     The three royals are all too dark to be TEXT on #080c14
+     (1.84 / 2.25 / 3.04 — all fail AA). The site only ever uses them as
+     backgrounds and borders. So fills get royal, and text gets royal-pale. */
+  --color-accent: #d0dcf5; /* accent text/icons — 14.20:1 (site --royal-pale) */
+  --color-accent-fill: #2557c7; /* button bg, white text 6.43:1 (--royal-light) */
+  --color-accent-fill-hover: #1a3c7a; /* white text 10.65:1 (site's own hover) */
+  --color-accent-soft: #a8c0ee; /* dimmer accent text — 10.66:1 */
+  --color-accent-glow: rgba(37, 87, 199, 0.5);
+  --color-accent-wash: rgba(26, 60, 122, 0.09); /* tinted panel, as on her cards */
 
-  /* ---- Secondary ---- */
-  --color-secondary: #9db8ff;
-  --color-secondary-fill: #3355c4;
-  --color-secondary-fill-hover: #2f4fb8;
-  --color-secondary-soft: #c9d8ff;
+  /* ---- Secondary: gold ----
+     Used on the site for eyebrows, bullets, and the points readout.
+     NOT given a fill token on purpose: white on gold is 2.28:1 and fails,
+     and every fill in this app pairs with var(--color-text). Text role only. */
+  --color-secondary: #c8a85a; /* 8.58:1 */
+  --color-secondary-fill: #2557c7; /* falls back to royal so white stays legible */
+  --color-secondary-fill-hover: #1a3c7a;
+  --color-secondary-soft: #ddc68f;
 
   /* ---- Status ---- */
-  --color-danger: #ff6b6b;
+  --color-danger: #e8737f;
 
   /* ---- Spacing ---- */
   --spacing-xs: 8px;
@@ -67,10 +69,10 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
 
-  /* ---- Shadows (role-named, not color-named) ---- */
-  --shadow-accent-sm: 0 4px 15px rgba(65, 105, 225, 0.3);
-  --shadow-accent-md: 0 6px 20px rgba(65, 105, 225, 0.5);
-  --shadow-accent-lg: 0 10px 40px rgba(65, 105, 225, 0.3);
+  /* ---- Shadows ---- */
+  --shadow-accent-sm: 0 4px 15px rgba(37, 87, 199, 0.3);
+  --shadow-accent-md: 0 6px 20px rgba(37, 87, 199, 0.5);
+  --shadow-accent-lg: 0 10px 40px rgba(37, 87, 199, 0.3);
 
   /* ---- Border Radius ---- */
   --radius-sm: 4px;
